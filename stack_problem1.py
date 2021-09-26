@@ -3,17 +3,12 @@ def push(X):
     return stack
 
 import re
-
+import sys
 stack=[]
-Order=[]
+n = int(sys.stdin.readline())
+data = [sys.stdin.readline().strip() for i in range(n)]
 
-Order_num=int(input())
-
-while Order_num>=1 :
-    Order.append(input())
-    Order_num -= 1
-
-for i in Order :
+for i in data :
     if re.search(r"push \d+", i):
         match = re.search(r"push (\d+)", i)
         push(int(match.group(1)))
