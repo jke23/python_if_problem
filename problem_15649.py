@@ -11,7 +11,7 @@ num=[1 for _ in range(b)]
 i=1
 n=0
 while i>0 :
-    print("{}" for n in range(b), format(num[n]))
+    print(str(num)[1],str(num)[4],sep=' ')
     num=next_num(num,b,a)
     if num == [1 for _ in range(b)] :
         break
