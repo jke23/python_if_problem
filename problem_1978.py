@@ -9,14 +9,14 @@ if num[0] == 1 :
     del num[0]
 
 for i in range(0,len(num)):
+    error=0
     if num[i] in sosu:
         real_sosu.append(num[i])
     else:
         for n in range(0,len(sosu)):
-            if num[i]%sosu[n] != 0 :
-                continue
-            else :
-                break
+            if num[i]%sosu[n] == 0 :
+                error+=1
+        if error == 0:
             real_sosu.append(num[i])
 
 print(len(real_sosu))
