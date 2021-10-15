@@ -75,7 +75,7 @@ while True:
         schedule.run_pending()
 
         if start_time < now < end_time - datetime.timedelta(seconds=10):
-            target_price = get_target_price("KRW-BTC", 0.2)
+            target_price = get_target_price("KRW-BTC", 0.5)
             current_price = pyupbit.get_current_price("KRW-BTC")
             if target_price < current_price and current_price < predicted_close_price:
                 krw = get_balance("KRW")
