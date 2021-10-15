@@ -4,8 +4,8 @@ import datetime
 import schedule
 from fbprophet import Prophet
 
-access = "your-access"
-secret = "your-secret"
+access = "123"
+secret = "456"
 
 def get_target_price(ticker, k):
     """변동성 돌파 전략으로 매수 목표가 조회"""
@@ -30,9 +30,16 @@ def get_balance(ticker):
                 return 0
     return 0
 
-def get_current_price(ticker):
+def get_ma20(ticker):
+    """20일 이동 평균선 조회"""
+    df = pyupbit.get_ohlcv(ticker, interval="day", count=20)
+    ma20 = df['close'].rolling(window=20, min_periods=1).mean().iloc[-1]
+    print(ma20)
+    return ma20
+
+'''def get_current_price(ticker):
     """현재가 조회"""
-    return pyupbit.get_orderbook(tickers=ticker)[0]["orderbook_units"][0]["ask_price"]
+    return pyupbit.get_orderbook(tickers=ticker)[0]["orderbook_units"][0]["ask_price"]'''
 
 predicted_close_price = 0
 def predict_price(ticker):
@@ -68,12 +75,12 @@ while True:
         schedule.run_pending()
 
         if start_time < now < end_time - datetime.timedelta(seconds=10):
-            target_price = get_target_price("KRW-BTC", 0.5)
-            current_price = get_current_price("KRW-BTC")
+            target_price = get_target_price("KRW-BTC", 0.2)
+            current_price = pyupbit.get_current_price("KRW-BTC")
             if target_price < current_price and current_price < predicted_close_price:
                 krw = get_balance("KRW")
                 if krw > 5000:
-                    upbit.buy_market_order("KRW-BTC", krw*0.9995)
+                    upbit.buy_market_order("KRW-BTC", krw*0.1)
         else:
             btc = get_balance("BTC")
             if btc > 0.00008:
