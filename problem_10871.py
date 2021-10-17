@@ -5,9 +5,9 @@ arr=list(map(int,stdin.readline().split()))
 small_num=[]
 
 for i in range(a):
-    if i<b :
-        small_num.append(i)
+    if arr[i]<b :
+        small_num.append(arr[i])
     else :
         continue
 
-print()
+print(" ".join(map(str,small_num)))
