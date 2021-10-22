@@ -5,6 +5,9 @@ count = [-1 for i in range(len(alpabet))]
 for i in range(0,len(String)):
     if String[i] in alpabet :
         n = alpabet.index(String[i])
-        count[n] = i
+        if count[n] == -1 :
+            count[n] = i
+        else :
+            continue
 
 print(" ".join(map(str,count)))
