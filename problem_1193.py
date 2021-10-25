@@ -9,7 +9,7 @@ while True :
         num -= i
         break
 
-n = a-num
+n = a-num-1
 if i%2 == 0 :
     print("{}/{}".format(n+1,i-n))
 else :
