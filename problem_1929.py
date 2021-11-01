@@ -1,20 +1,16 @@
 
-a = int(input())
-b = int(input())
+a,b = map(int,input().split())
+
 
 sosu = []
 for x in range(a,b+1) :
     error = 0
     if x > 1 :
-        for i in range(2,x) :
+        for i in range(2,int(x**0.5)+1) :
             if x%i == 0 :
                 error += 1
                 break
         if error == 0 :
             sosu.append(x)
 
-if len(sosu) > 0 :
-    print(sum(sosu))
-    print(sosu[0])
-else :
-    print(-1)
+print("\n".join(map(str,sosu)))
