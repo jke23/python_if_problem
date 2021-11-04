@@ -1,10 +1,15 @@
-input_star = [["*"*a]*a]
+import sys
+sys.setrecursionlimit(10**6)
+def append_star(LEN):
+    if LEN == 1: return ['*']
+    Stars = append_star(LEN//3)
+    L = []
+    for S in Stars: L.append(S*3)
+    for S in Stars: L.append(S+' '*(LEN//3)+S)
+    for S in Stars: L.append(S*3)
+    return L
 
-def recursive_star(n, star) :
-    for x in range(0,int(n/3)) :
-        input_star[int(n*n/3+n/3+n*x+1) : int(n*n/3+(n/3)*2+n*x+1)] = " "
-        for i in range\
 
-                    (0,9):
-            for b in range(0,int(n/3)) :
-                star[n/3*x]
+n = int(sys.stdin.readline().strip())
+print('\n'.join(append_star(n)))
+
