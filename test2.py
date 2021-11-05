@@ -1,5 +1,5 @@
 import sys
-sys.setrecursionlimit(10**6)
+#sys.setrecursionlimit(10**6)
 def append_star(LEN):
     if LEN == 1: return ['*']
     Stars = append_star(LEN//3)
@@ -11,5 +11,6 @@ def append_star(LEN):
 
 
 n = int(sys.stdin.readline().strip())
+print(append_star(n))
 print('\n'.join(append_star(n)))
 
