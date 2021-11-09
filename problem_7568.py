@@ -2,15 +2,18 @@ from sys import stdin
 i = int(input())
 
 human = [list(map(int,stdin.readline().split()))for _ in range(i)]
+grade = []
 
-first = 0
 count = 0
 
-print(human)
 for x in range(i) :
-    for y in range(x,i+1):
-        if human[x][0] > human[y][0] :
-            if human[x][1] > human[y][1] :
-                first = x
-            else :
+    count = 1
+    for y in range(i):
+        if human[x][0] < human[y][0] :
+            if human[x][1] < human[y][1] :
                 count += 1
+            else :
+                continue
+    grade.append(count)
+
+print(" ".join(map(str,grade)))
