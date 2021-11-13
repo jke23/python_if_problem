@@ -1,27 +1,10 @@
-a = int(input())
-
-number = 666
-med_num = 0
-count = 0
-while count >= a :
-    if i % 10 != 6 :
-        med_number = i*1000 + number
-        count += 1
-    else :
-        if i < 100 :
-            for r in range(10):
-                if count == a :
-                    break
-                med_number = i*1000 + (number*10-60) + r
-                count += 1
-        elif i < 1000 :
-            for r in range(10):
-                if count == a:
-                    break
-                med_number = i*1000 + (number*10-60) + r
-            for r in range(100):
-                if count == a:
-                    brak
-                med_number = i*1000 + (number)
-
-
+n = int(input())
+cnt = 0
+six_n = 666
+while True:
+    if '666' in str(six_n):
+        cnt += 1
+    if cnt == n:
+        print(six_n)
+        break
+    six_n += 1
