@@ -1,22 +1,27 @@
-a = int(input())
-
+from sys import stdin
 num = []
-for _ in range(a) :
-    num.append(int(input()))
-
+a = int(stdin.readline())
+for n in range(a) :
+    num.append(int(stdin.readline()))
 num.sort()
-coun = []
-inde = []
 
-for x in range(a):
-    coun.append(num.count(num[x]))
-if coun.count(max(coun)) > 1 :
-    for i in range(a) :
-        if coun[i] == max(coun) :
-            if num[i] not in inde :
-                inde.append(num[i])
-inde.sort()
+
+check_list = [0] * 8001
+for i in range(a):
+    check_list[4000+num[i]] += 1
+count = 0
+maximum = max(check_list)
+if check_list.count(maximum) > 1:
+    for x in range(8002) :
+        if check_list[x] == maximum :
+            count += 1
+            second_num = x - 4000
+            if count > 1 :
+                break
+elif check_list.count(maximum) == 1 :
+    second_num = check_list.index(max(check_list)) - 4000
+
 print(round(sum(num)/a))
 print(num[int(a/2)])
-print(inde[1])
+print(second_num)
 print(num[-1]-num[0])
