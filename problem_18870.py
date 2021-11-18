@@ -1,10 +1,11 @@
-from sys import stdin
-a = int(stdin.readline())
-num = list(map(int,stdin.readline().split()))
-inde = list(num)
-fin = []
-inde.sort()
-for i in range(a) :
-    fin.append(inde.index(num[i]))
+import sys
 
-print(" ".join(map(str,fin)))
+input = sys.stdin.readline
+
+n = int(input())
+arr = list(map(int, input().split()))
+
+arr2 = sorted(list(set(arr)))
+dic = {arr2[i] : i for i in range(len(arr2))}
+for i in arr:
+    print(dic[i], end = ' ')
