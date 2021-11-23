@@ -25,12 +25,14 @@ num = list(map(int,stdin.readline().split()))
 cal = list(map(int,stdin.readline().split()))
 for x in range(4):
     if x == 0 :
-        cal_x.append("+") * cal[x]
+        for _ in range(cal[x]) :
+            cal_x.append("+")
     elif x == 1 :
-        cal_x.append("-") * cal[x]
+        for _ in range(cal[x]) :
+            cal_x.append("-")
     elif x == 2 :
-        cal_x.append("*") * cal[x]
+        for _ in range(cal[x]) :
+            cal_x.append("*")
     elif x == 3 :
-        cal_x.append("/") * cal[x]
-
-for
+        for _ in range(cal[x]) :
+            cal_x.append("/")
