@@ -1,12 +1,22 @@
 a = int(input())
-#0은 none
-#1은 queen
-#2는 false
+
 chess = [[0]*a]*a
-for i in range(a):
-    for x in range(a) :
-        chess[i][a] = 1
-        chess[i][:a] = 2
-        chess[i][a+1:] = 2
-        chess[i+1:][a] = 2
+
+def chess_not_queen(N, X, chess) :
+    chess[N][X] = 1
+    chess[N] = 1
+    chess[:][X] = 1
+    for i in range(X + 1,len(chess)):
+        y = 0
+        chess[i][y] = 1
+        chess[-i][y]
+        chess[i][-y]
+        chess[-i][-y]
+        y += 1
+
+
+
+
+
+
 
