@@ -1,22 +1,14 @@
-a = int(input())
+from sys import stdin
 
-chess = [[0]*a]*a
+a = int(stdin.readline())
 
-def chess_not_queen(N, X, chess) :
-    chess[N][X] = 1
-    chess[N] = 1
-    chess[:][X] = 1
-    for i in range(X + 1,len(chess)):
-        y = 0
-        chess[i][y] = 1
-        chess[-i][y]
-        chess[i][-y]
-        chess[-i][-y]
-        y += 1
-
-
-
-
-
-
-
+chess = [0]*a
+visited = [False]*a
+count = 0
+hang = 0
+for i in range(a) :
+    chess[0] = i
+    visited[i] = True
+    for x in range(x) :
+        visited[i + x] = True
+        visited[i - x] = True
